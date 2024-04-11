@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url(images/Backgound_image.jpg); /* Update URL to your background image */
+            background-size: cover; /* Ensures the background image covers the entire body */
+            background-repeat: no-repeat; /* Prevents background image from repeating */ 
+        }
+        .logo {
+            max-width: 200px;
+            margin: 20px auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #4f8058;;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        label[for="chef"],
+        label[for="recipe_seeker"] {
+            margin-right: 15px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    footer {
+      background-color: #4f8058;
+      color: #fff;
+      padding: 0px;
+      text-align: center;
+      margin-top: 50px; /* Adjust as needed */
+    }
+    </style>
+</head>
+<body>
+    <img class="logo" src="images/main_logo.jpg" alt="Logo">
+    <h2>User Registration</h2>
+    <form action="http://localhost/php/Registration_PHP.php" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="mobile">Mobile Number:</label><br>
+        <input type="tel" id="mobile" name="mobile" required><br>
+
+        <label>Class:</label><br>
+        <label for="chef">
+            <input type="radio" id="chef" name="role" value="chef" required>
+            Chef
+        </label>
+        <label for="recipe_seeker">
+            <input type="radio" id="recipe_seeker" name="role" value="recipe_seeker" required>
+            Recipe Seeker
+        </label><br>
+
+        <input type="submit" value="Register">
+    </form>
+      <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <div class="contact-us">
+        <h2>Contact Us</h2>
+        <p>Email: recipe.com</p>
+        <p>Phone: 07423077374</p>
+        <Address>470, Union street, Aberdeen, AB25 3XH</Address>
+      </div>
+      <div class="about-us">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec odio eu est blandit volutpat.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

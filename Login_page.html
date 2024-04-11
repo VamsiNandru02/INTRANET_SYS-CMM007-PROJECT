@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      padding-bottom: 80px; /* Adjust as per your footer height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url(images/Backgound_image.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+
+    }
+    .logo {
+      max-width: 90px;
+      margin: 20px;
+      /* Adjust margin as needed */
+      position: absolute;
+      /* Position logo absolutely */
+      top: 0;
+      /* Align to the top */
+      left: 0;
+      /* Align to the left */
+    }
+    .login-container {
+      background-color: #47865e;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      background-image: url();
+      background-repeat: no-repeat;
+      background-size: 100px; /* Adjust the size of the logo */
+      background-position: 20px 20px; /* Adjust the position */
+    }
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .login-form {
+      display: flex;
+      flex-direction: column;
+    }
+    .login-form input {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .login-form button {
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .login-form button:hover {
+      background-color: #0056b3;
+    }
+    .login-form .links {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .login-form .links a {
+      text-decoration: none;
+      color: #dcdcdc;
+    }
+    .login-form .links a:hover {
+      text-decoration: underline;
+    }
+    /* Footer styles */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #4f8058;
+      color: #fff;
+      padding: 0px; /* Adjust padding */
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <img class="logo" src="images/main_logo.jpg" alt="Logo">
+  <div class="login-container">
+    <h2>Login</h2>
+    <form class="login-form" action="http://localhost/php/sign_validate.php" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <div class="links">
+        <a href="http://localhost/php/forgot_pass.html">Forgot password?</a>
+        <a href="Registration.html">Register</a>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <div class="contact-us">
+        <h2>Contact Us</h2>
+        <p>Email: example@example.com</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+      <div class="about-us">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec odio eu est blandit volutpat.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

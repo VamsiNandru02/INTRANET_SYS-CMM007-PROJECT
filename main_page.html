@@ -1,0 +1,197 @@
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "rgstr_tbl";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch recipe details from the database
+$sql = "SELECT r_title AS title, chef_name AS chef, category, r_image AS image, url FROM recipe_table";
+$result = $conn->query($sql);
+
+// Initialize an array to store fetched data
+$recipes = [];
+
+// Store fetched data in the array
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $recipes[] = $row;
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url(images/Backgound_image.jpg); 
+      background-size: cover; 
+      background-repeat: no-repeat;  
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensure page height is at least viewport height */
+    }
+    .header {
+      background-color: #47865e;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      max-width: 90px;
+      margin-right: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      color: #fff;
+    }
+    .quote {
+      text-align: center;
+      color: #fff;
+      font-style: italic;
+      margin-bottom: 50px;
+    }
+    .search-bar-container {
+      display: flex;
+      align-items: center;
+    }
+    .search-bar {
+      width: 200px;
+      padding: 8px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .logout-button {
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .logout-button:hover {
+      background-color: #c82333;
+    }
+    .add-recipe-button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .add-recipe-button:hover {
+      background-color: #0056b3;
+    }
+    .recipes-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+    .recipe-item {
+      margin: 10px;
+      cursor: pointer;
+    }
+    .recipe-item img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    /* Footer styles */
+    footer {
+      margin-top: auto; /* Push footer to the bottom */
+      background-color: #47865e;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+    footer address {
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo-container">
+      <img class="logo" src="images/main_logo.jpg" alt="Logo">
+      <h1>Welcome to Recipe Website</h1>
+    </div>
+    
+    <div class="search-bar-container">
+      <button class="add-recipe-button" onclick="redirectToRecipeForm()">Add Recipe</button>
+      <input type="text" class="search-bar" id="title-filter" placeholder="Search by Recipe Title...">      
+      <input type="text" class="search-bar" id="category-filter" placeholder="Search by Category...">
+      <button class="logout-button" onclick="logout()">Logout</button>
+    </div>
+  </div>
+  
+  <h2 class="quote">"Good food is the foundation of genuine happiness." - Auguste Escoffier</h2>
+
+  <div class="recipes-container">
+    <?php foreach ($recipes as $recipe): ?>
+      <div class="recipe-item" data-title="<?php echo htmlspecialchars($recipe['title']); ?>" data-chef="<?php echo htmlspecialchars($recipe['chef']); ?>" data-category="<?php echo htmlspecialchars($recipe['category']); ?>" onclick="viewRecipe('<?php echo $recipe['url']; ?>')">
+        <img src="<?php echo htmlspecialchars($recipe['image']); ?>" alt="<?php echo htmlspecialchars($recipe['title']); ?>">
+      </div>
+    <?php endforeach; ?>
+  </div>
+
+  <script>
+    function logout() {
+      // Redirect to logout page
+      window.location.href = "logout.php";
+    }
+
+    function viewRecipe(url) {
+      // Open the recipe page
+      window.open(url, "_blank");
+    }
+
+    function redirectToRecipeForm() {
+      // Redirect to add recipe form page
+      window.location.href = "add_recipe.html";
+    }
+  </script>
+  
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <div class="contact-us">
+        <h2>Contact Us</h2>
+        <p>Email: recipe.com</p>
+        <p>Phone: 07423077374</p>
+        <address>470 George street, Aberdeen, AB25 3XH</address>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

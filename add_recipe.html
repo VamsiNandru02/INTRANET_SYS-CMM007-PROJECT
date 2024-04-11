@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Recipe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url(images/Backgound_image.jpg); 
+      background-size: cover; 
+      background-repeat: no-repeat;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+    form {
+      width: 50%;
+      margin: 0 auto;
+      background-color: #47865e;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"], textarea, input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Add Recipe</h1>
+  <form id="recipe-form" action="http://localhost/php/submit_recipe.php" method="post" enctype="multipart/form-data">
+    <label for="recipe-title">Recipe Title:</label>
+    <input type="text" id="recipe-title" name="recipe-title" required><br>
+    
+    <label for="recipe-category">Category:</label>
+    <input type="text" id="recipe-category" name="recipe-category" required><br>
+    
+    <label for="recipe-description">Description:</label><br>
+    <textarea id="recipe-description" name="recipe-description" required></textarea><br>
+    
+    <label for="chef-name">Chef Name:</label>
+    <input type="text" id="chef-name" name="chef-name" required><br>
+    
+    <label for="recipe-image">Recipe Image:</label>
+    <input type="file" id="recipe-image" name="recipe-image" accept="image/*" required><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
